@@ -22,8 +22,7 @@ page {
 
 .Layout
 {
-    display: flex;
-    margin-top: 20rpx;
+    margin-top: 40rpx;
 }
 /*次要状态详情*/
 /* .Home .Condition .DeputyCondition{

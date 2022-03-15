@@ -12,20 +12,59 @@
     </scroll-view>
 </view>
 
-<van-row class="Layout">
-  <van-col span="12" offset="1">
-<!--   <van-col span="8">span: 8</van-col>
-    <van-col span="8">span: 8</van-col> -->
+<van-divider hairline/>
+<van-tabs swipeable class="Layout">
+  <van-tab title="机器状态">
+  <block wx:if="{{false}}"><!--在这设定开机前后的状态-->
+    <van-cell inset>
+        一键启动
+    </van-cell>
+  </block>
+  <block wx:else>
+        <van-cell inset  center="true"> 
+            <view slot="title">
+                <title-class>
+                    <van-circle
+                        value="{{ 30 }}"
+                        layer-color="#eeeeee"
+                        color="#00FF7F"
+                        text="{{ '进度: '+30 + '%' }}"
+                    />
+                </title-class>
+            </view>
 
-     <!--状态栏 class="machine " style="width: 150rpx; height: 475rpx;" 
+            <view>
+                <text>{{'模式： ' + '小憩一下'}}</text>
+                <view/>
+                <text>{{'运行状态： ' + '正常'}}</text>
+            </view>
+        </van-cell>
+</block>
+  </van-tab>
+
+  <van-tab title="简便设置">
+        <van-cell inset > 
+            <van-grid  column-num = "3" gutter="{{ 10 }}" clickable>
+                <van-grid-item icon="photo-o" text="文字" />
+                <van-grid-item icon="/static/tabarimage/bluetooth.186x256.png" text="蓝牙" />
+                <van-grid-item icon="photo-o" text="文字" user-slot/>
+            </van-grid>
+        </van-cell>
+  </van-tab>
+
+</van-tabs>
+
+
+
+<!-- <van-row >
+  <van-col span="12" offset="1">
+   <van-col span="8">span: 8</van-col>
+    <van-col span="8">span: 8</van-col> 
+
+     <!-状态栏 class="machine " style="width: 150rpx; height: 475rpx;" 
         <image src="/static/home/选择框.png" mode="heightFix" bindtap="MachineWorkingDetalls" data-nid = "123" data-name="50" border-radius="200rpx"><!--机器状态
-        </image><!-- bindtap 点击事件-->
-        <van-button 
-        icon="/static/tabarimage/clock-fast.256x185.png"
-        custom-style="height:500rpx;width:325rpx;border-radius:75rpx"
-        clickable
-        color="linear-gradient(to right, #4bb0ff, #6149f6)" 
-        block >机器状态</van-button>
+        </image><!- bindtap 点击事件
+
     </van-col>
 
     <van-col span="8"  offset="1">
@@ -35,21 +74,15 @@
             <van-grid-item icon="photo-o" text="文字" user-slot/>
         </van-grid>
     </van-col>
-       <!-- <view class="DeputyCondition">
+       <!- <view class="DeputyCondition">
             <image src="/static/home/mode.png" mode="widthFix" style="height: 150rpx; width: 300rpx;"></image>
              <image class = "bluetooth"  src="/static/home/bluetooth.png" mode="widthFix" style="height: 250rpx; width: 300rpx;" bindtap="MachineBluetooth" data-status = "woring"></image> 
             <image src="/static/home/Working.png" mode="widthFix" style="height: 180rpx; width: 300rpx;"></image>
         </view>
-        -->
+        
     
     
-</van-row>
-
-
-    <view class="machine">
-        <text class="title">工作状态</text>
-        <image src="/static/home/machine.png" mode="heightFix" style="height: 600rpx;"> </image>
-    </view>
+</van-row>-->
 
 
 
