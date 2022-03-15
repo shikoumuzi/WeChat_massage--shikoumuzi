@@ -1,0 +1,28 @@
+
+page {
+    background-color: #F8F8FF;
+}/*设置窗口背景色*/
+
+.ini
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;   
+}
+.individ
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50rpx;
+    margin-bottom: 80rpx;
+}
+
+.ini .Selection  .label
+{
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+}
+
+
+

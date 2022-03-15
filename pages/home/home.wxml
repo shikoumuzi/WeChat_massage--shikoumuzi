@@ -1,0 +1,55 @@
+<!--pages/home/home.wxml-->
+
+<view class="Home" enable-flex="true">
+    <scroll-view class ="Scroll" scroll-x="true" style=" white-space: nowrap; display: flex; height: 425rpx" 
+    lower-threshold = "50rpx" scroll-left = "425rpx" scroll-with-animation = "true">
+    <!--滑动窗口栏-->
+        <text>\n</text>
+        <image src="/static/home/36cfe8d94d562db81db69189b96415e6e7f00fa1.jpg@518w.webp"></image>
+        <image src="/static/home/36cfe8d94d562db81db69189b96415e6e7f00fa1.jpg@518w.webp"></image>
+        <image src="/static/home/36cfe8d94d562db81db69189b96415e6e7f00fa1.jpg@518w.webp"></image>
+        <image src="/static/home/36cfe8d94d562db81db69189b96415e6e7f00fa1.jpg@518w.webp"></image>
+    </scroll-view>
+</view>
+
+<van-row class="Layout">
+  <van-col span="12" offset="1">
+<!--   <van-col span="8">span: 8</van-col>
+    <van-col span="8">span: 8</van-col> -->
+
+     <!--状态栏 class="machine " style="width: 150rpx; height: 475rpx;" 
+        <image src="/static/home/选择框.png" mode="heightFix" bindtap="MachineWorkingDetalls" data-nid = "123" data-name="50" border-radius="200rpx"><!--机器状态
+        </image><!-- bindtap 点击事件-->
+        <van-button 
+        icon="/static/tabarimage/clock-fast.256x185.png"
+        custom-style="height:500rpx;width:325rpx;border-radius:75rpx"
+        clickable
+        color="linear-gradient(to right, #4bb0ff, #6149f6)" 
+        block >机器状态</van-button>
+    </van-col>
+
+    <van-col span="8"  offset="1">
+        <van-grid  column-num = "1" gutter="{{ 10 }}" clickable>
+            <van-grid-item icon="photo-o" text="文字" />
+            <van-grid-item icon="/static/tabarimage/bluetooth.186x256.png" text="蓝牙" />
+            <van-grid-item icon="photo-o" text="文字" user-slot/>
+        </van-grid>
+    </van-col>
+       <!-- <view class="DeputyCondition">
+            <image src="/static/home/mode.png" mode="widthFix" style="height: 150rpx; width: 300rpx;"></image>
+             <image class = "bluetooth"  src="/static/home/bluetooth.png" mode="widthFix" style="height: 250rpx; width: 300rpx;" bindtap="MachineBluetooth" data-status = "woring"></image> 
+            <image src="/static/home/Working.png" mode="widthFix" style="height: 180rpx; width: 300rpx;"></image>
+        </view>
+        -->
+    
+    
+</van-row>
+
+
+    <view class="machine">
+        <text class="title">工作状态</text>
+        <image src="/static/home/machine.png" mode="heightFix" style="height: 600rpx;"> </image>
+    </view>
+
+
+

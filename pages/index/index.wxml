@@ -1,0 +1,160 @@
+<!--pages/index/index.wxml-->
+
+<view class="individ" enable-flex="true"><!--顶部的按钮-->
+    <van-button icon="/static/tabarimage/user-add.512x512.png" type="info" bindtap="pushIndivid">
+        添加个性化配置
+    </van-button>
+</view>
+<van-divider  customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"/>
+
+<!--个性化配置的表单动画效果-->
+<van-transition name="fade-left" duration="{{ { enter: 1700, leave: 1700 } }}" 
+    bind:before-enter="beforeenter" wx:if="{{AddInd }}" >
+<block wx:if="{{saveFile_for_ind.length < 8}}"><!--AddInd是用来确定是否要 展开/渲染 自定义设置的表格的-->
+
+    <form catchsubmit="formSubmit" catchreset="formReset" ><!--个性化设置表格-->
+        <van-cell-group inset>
+        <van-cell inset="true" border="true">
+            <view slot="title">
+                <view class="van-cell-text">name</view>
+            </view>
+        </van-cell>
+
+        <!--mmodel: 表示为双向绑定-->
+        <van-field
+            model:value="{{  CurrentName }}"
+            name="{{CurrentName}}"
+            placeholder="请输入配置名字,最多10个字符"
+            maxlength="10"
+            border="{{ false }}"
+            bind:change="onChangeinput"
+        />
+        </van-cell-group>
+        <van-divider />
+
+        <checkbox-group class = "ini" bindchange="machini"><!--表单内的各项设置-->
+            <view class = "Selection" wx:for="{{individuation}}" 
+                wx:for-item="labelName" wx:if = "{{labelName.name !== 'Dosage'}}"> 
+
+                <van-cell-group inset><!--单元格组件-->
+                <van-cell border="true" title="{{labelName.name}}" ><!--只渲染非dosage部分-->
+                    <view slot="right-icon"><!--这里初步判断只能够放一个参数，如果想要对各最好列出多个slot属性的view容器出来-->          
+                         <value-class><!--确定右侧内容的外部样式-->
+                            <switch bindchange="SwichInindIviduation" data-labelname = "{{labelName}}"></switch>
+                         </value-class>
+                     </view>
+                    <!--打开是否调整的开关，不开则为默认配置-->
+                </van-cell>
+                </van-cell-group>
+
+                <block wx:if="{{ labelName.Switch }}" ><!--单选框-->
+                    <!--控件-->
+
+                <van-transition name="fade-down" duration="1000">
+                <van-cell-group inset><!--单元格组件-->
+                    <van-cell>
+                    <view slot="title">
+                    <title-class>
+                    <van-transition name="fade-up">
+                    <van-radio-group value="{{labelName.name}}" bind:change="onChange" direction="horizontal" >
+                        <van-radio class="label" name="{{labelName.name + ':' + labelName.value[0]}}">
+                            {{labelName.value[0]}}</van-radio>
+                        <van-radio class="label" name="{{labelName.name + ':' + labelName.value[1]}}">
+                            {{labelName.value[1]}}</van-radio>
+                        <van-radio class="label" name="{{labelName.name + ':' +  labelName.value[2]}}">
+                            {{labelName.value[2]}}</van-radio>
+                        <!--这里的name是发出事件的名字-->
+                    </van-radio-group>
+                    </van-transition>
+                    </title-class><!--表单内的自定义标题-->
+                    </view>
+                    </van-cell>
+                </van-cell-group>
+                </van-transition>
+
+                </block>
+                <van-divider />
+            </view>
+        </checkbox-group>
+
+        <view class="section section_gap"><!--这里是用量调整-->
+            <van-cell-group inset >
+            <van-cell title="{{individuation[2].name}}"/>
+            <van-cell>
+            <view slot="title">
+            <title-class>
+            <text>{{value}}</text>
+                <slider value="{{individuation[2].vaildvalue}}" bindchange="slider1change"  min = "0" max="100" step = "20" show-value/>
+            </title-class>
+            </view>
+    
+            </van-cell>
+            </van-cell-group>
+        <van-divider />
+        </view>
+        <van-button type="primary" bindtap="SaveFile" block>保存</van-button>
+    </form>
+</block>
+</van-transition>
+
+<!--手风琴式下拉表格-->
+<block><!--展示所有配置-->
+<block wx:if="{{saveFile_for_ind.length !== 0}}"><!--展示个人的设置-->
+    <van-collapse accordion value="{{ activeName }}" bind:change="onChangecollapse" >
+
+        <block wx:for="{{saveFile_for_ind}}" wx:for-item="data_for_Individ">
+            <!--渲染默认配置-->
+            <block wx:if="{{data_for_Individ.name === '小憩一下' || data_for_Individ.name === '午间休息' || data_for_Individ.name === '长时舒缓' }}">
+            <van-collapse-item title="{{data_for_Individ.name}}" >
+                <van-cell title="Message"  >
+                    <view><!--因为wxml不支持像HTML一样用<br/>换行，所以采用<view>换行-->
+                        {{'Temperature: ' + data_for_Individ.temperature}}
+                        </view><view>
+                        {{'Time: ' + data_for_Individ.time}} 
+                        </view>
+                        {{'Dosage: ' + data_for_Individ.dosage}}
+                </van-cell>
+            </van-collapse-item>
+            </block>
+
+            <block wx:else><!--将非默认配置渲染-->
+            <van-collapse-item title="{{data_for_Individ.name}}" >
+                <van-swipe-cell right-width="{{ 65 }}" center><!--左右滑动按钮调出组件-->
+                    <van-cell-group>
+
+                        <van-cell title="Message"  >
+                            <view><!--因为wxml不支持像HTML一样用<br/>换行，所以采用<view>换行-->
+                            {{'Temperature: ' + data_for_Individ.temperature}}
+                            </view><view>
+                            {{'Time: ' + data_for_Individ.time}} 
+                             </view>
+                             {{'Dosage: ' + data_for_Individ.dosage}}
+                        </van-cell>
+
+                    </van-cell-group>
+                    <view slot="right" bindtap="delInI">
+                        <van-button type="primary" size="small">
+                            删除
+                        </van-button>
+                    </view>
+                </van-swipe-cell>
+            </van-collapse-item>
+            </block>
+
+        </block>
+    </van-collapse>
+</block>
+<block  wx:if="{{saveFile_for_ind.length === 3}}">
+    <van-notice-bar
+  color="#1989fa"
+  background="#ecf9ff"
+  left-icon="info-o"
+  text="您还没有个人设置"
+/>
+</block>
+</block>
+
+
+
+
+

@@ -1,0 +1,22 @@
+/* pages/message/message.wxss */
+page {
+    background-color: #F8F8FF;
+}/*设置窗口背景色*/
+
+.message_user
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;/*副轴*/
+
+}
+
+/*.message_user .image
+{
+    display: flex;
+    flex-direction: column;
+    justify-self:center;
+    align-self: center;
+}*/
+

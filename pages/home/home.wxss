@@ -1,0 +1,79 @@
+/* pages/home/home.wxss */
+page {
+    background-color: #F8F8FF;
+}/*设置窗口背景色*/
+/*主要的界面布局*/
+.Home
+{
+    display: flex;
+    flex-direction: column;/*主轴*/
+    align-items: center;/*副轴*/
+}
+/*滑动窗口设置*/
+.Home .Scroll {
+    height: 425rpx;
+    width: 670rpx;
+    display: flex;
+    flex-wrap:nowrap;/*当超出屏幕最大宽度时 不换行显示*/
+    flex-direction: row;/*主轴方向*/
+    justify-content:center;
+    align-self: center;/*副轴*/
+}
+
+.Layout
+{
+    display: flex;
+    margin-top: 20rpx;
+}
+/*次要状态详情*/
+/* .Home .Condition .DeputyCondition{
+    display: flex;
+    height: 461rpx;
+    width: 100rpx;
+    flex-direction: column;
+    justify-self:self-start;
+    align-self: self-end;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+} */
+/* .Home .Condition .DeputyCondition image{
+    margin-bottom: 35rpx;
+} */
+
+/*主要状态布局*/
+/* .Home .Condition{
+    display: flex;
+    height: 461rpx;
+    flex-direction: row;/*主轴
+    justify-content: start;/*在主轴上的对齐方式
+    align-self: start;
+    margin-left: 45rpx;/*设置与左侧边的边距
+    margin-top: 25rpx;
+    margin-left: 25rpx;
+    margin-bottom: 20rpx;
+} */
+
+
+
+/* .Home .Scroll image{
+    height: 425rpx;
+    width: 670rpx;
+} */
+
+/* .Home .machine{
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+
+} */
+/* .Home .machine text{
+    font-style: oblique;
+    font-weight: 900;
+    margin-left: 25rpx;
+    margin-top: 25rpx;
+} */
+
+/*.Home .Condition .bluetooth
+{
+    
+}*/

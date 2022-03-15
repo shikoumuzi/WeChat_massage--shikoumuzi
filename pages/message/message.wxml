@@ -1,0 +1,67 @@
+<!--pages/message/message.wxml-->
+<view>
+  <view class = "message_user">
+    <image  class = "image" src ="{{message_self.path}}" style="height: 150rpx; width: 150rpx; border-radius: 50rpx;" ></image><!--border-radius 图片圆角 当其值等于长宽时为原型 小于时为圆角矩形-->
+    <view>{{message_self["name"]}}</view>
+  </view>
+    <van-cell title="个人信息" center bindtap="MessageSelf" is-link/> 
+
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="设备信息" name="Machine" wx:for="{{machines}}" wx:for-item="M">
+    <van-cell inset title="{{M.name}}" value="{{M.value}}" label="{{M.Id}}" />
+  </van-collapse-item>
+
+  <van-collapse-item title="问题反馈" name="Problem">
+    <van-field
+        value="{{ message }}"
+        label="问题反馈"
+        type="textarea"
+        placeholder="请输入问题反馈"
+        autosize
+        maxlength="100"
+        show-word-limit="false"
+        use-button-slot
+        border="{{ false }}"
+      ><!--autosize 为高度自适应-->
+      <van-button slot="button" size="small" type="primary" >
+        提交
+      </van-button>
+      </van-field>
+  </van-collapse-item>
+
+  <van-collapse-item title="官方商城" name="Shop">
+    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  </van-collapse-item>
+
+  <van-collapse-item title="售后服务" name="Service">
+    <van-cell title="单元格" value="内容" />
+  </van-collapse-item>
+
+  <van-collapse-item title="信息更新" name="Message">
+    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  </van-collapse-item>
+
+  <van-collapse-item title="留言面板" name="Tellme">
+      <van-field
+        value="{{ message }}"
+        label="留言"
+        type="textarea"
+        placeholder="请输入留言"
+        autosize
+        maxlength="100"
+        show-word-limit="false"
+        use-button-slot
+        border="{{ false }}"
+      ><!--autosize 为高度自适应-->
+      <van-button slot="button" size="small" type="primary" >
+        提交
+      </van-button>
+      </van-field>
+  </van-collapse-item>
+</van-collapse>
+
+
+    <!--用 . 方法直接获取，字典方法不行-->
+
+    
+</view>

@@ -1,0 +1,10 @@
+<!--pages/MachineWorkingDetall/MachineWorkingDetall.wxml-->
+
+
+<view>
+    数据：{{wornning}}
+</view>
+
+<button bindtap="Working" data-status = "0" >小憩一下</button>
+<button bindtap="Working" data-status = "1">午间休息</button>
+<button bindtap="Working" data-status = "2">长时舒缓</button>

@@ -1,0 +1,56 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/home/home",
+        "pages/message/message",
+        "pages/MachineWorkingDetall/MachineWorkingDetall",
+        "pages/message_user/message_user",
+        "pages/messageAll/messageAll"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#6495ED",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "颈部呵护",
+        "backgroundColor": "#FFF0F5",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "selectedColor": "#6495ED",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "static/tabarimage/home-city-outline.256x203.png",
+                "selectedIconPath": "static/tabarimage/home-city-outline.256x203.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "text": "设置",
+                "iconPath": "static/tabarimage/robot-industrial.244x256.png",
+                "selectedIconPath": "static/tabarimage/robot-industrial.244x256.png"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "text": "个人",
+                "iconPath": "static/tabarimage/incognito.256x243.png",
+                "selectedIconPath": "static/tabarimage/incognito.256x243.png"
+            }
+        ]
+    },
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-radio-group": "@vant/weapp/radio-group/index",
+        "van-divider": "@vant/weapp/divider/index",
+        "van-transition": "@vant/weapp/transition/index",
+        "van-notice-bar": "@vant/weapp/notice-bar/index",
+        "van-sticky": "@vant/weapp/sticky/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index"
+    },
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}
