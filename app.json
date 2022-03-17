@@ -3,10 +3,13 @@
         "pages/index/index",
         "pages/home/home",
         "pages/message/message",
-        "pages/MachineWorkingDetall/MachineWorkingDetall",
-        "pages/message_user/message_user",
         "pages/messageAll/messageAll"
     ],
+    "permission": {
+        "scope.userLocation": {
+          "desc": "您的位置授权用以开启系统蓝牙使用" 
+        }
+    },
     "window": {
         "navigationBarBackgroundColor": "#6495ED",
         "navigationBarTextStyle": "white",

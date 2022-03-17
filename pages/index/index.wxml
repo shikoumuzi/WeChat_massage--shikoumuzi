@@ -106,14 +106,25 @@
             <!--渲染默认配置-->
             <block wx:if="{{data_for_Individ.name === '小憩一下' || data_for_Individ.name === '午间休息' || data_for_Individ.name === '长时舒缓' }}">
             <van-collapse-item title="{{data_for_Individ.name}}" >
-                <van-cell title="Message"  >
-                    <view><!--因为wxml不支持像HTML一样用<br/>换行，所以采用<view>换行-->
-                        {{'Temperature: ' + data_for_Individ.temperature}}
-                        </view><view>
-                        {{'Time: ' + data_for_Individ.time}} 
-                        </view>
-                        {{'Dosage: ' + data_for_Individ.dosage}}
-                </van-cell>
+                <van-swipe-cell right-width="{{ 65 }}" center><!--左右滑动按钮调出组件-->
+                    <van-cell-group>
+
+                        <van-cell title="Message"  >
+                            <view><!--因为wxml不支持像HTML一样用<br/>换行，所以采用<view>换行-->
+                            {{'Temperature: ' + data_for_Individ.temperature}}
+                            </view><view>
+                            {{'Time: ' + data_for_Individ.time}} 
+                             </view>
+                             {{'Dosage: ' + data_for_Individ.dosage}}
+                        </van-cell>
+
+                    </van-cell-group>
+                    <view slot="right" >
+                        <van-button type="info" size="normal" bindtap="ChooseInI" data-status="{{data_for_Individ}}" data-dorc="c">
+                            选择
+                        </van-button>
+                    </view>
+                </van-swipe-cell>
             </van-collapse-item>
             </block>
 
@@ -131,12 +142,19 @@
                              {{'Dosage: ' + data_for_Individ.dosage}}
                         </van-cell>
 
-                    </van-cell-group>
+                    </van-cell-group><!--删除选择功能-->
                     <view slot="right" bindtap="delInI">
-                        <van-button type="primary" size="small">
+                        <van-button type="danger" size="normal" size="small" data-status="{{data_for_Individ}}" bindtap="ChooseInI" data-dorc="d">
                             删除
                         </van-button>
                     </view>
+                    <view/>
+                    <view slot="right" >
+                        <van-button type="info" size="normal" bindtap="ChooseInI" data-status="{{data_for_Individ}}" data-dorc="c"><!--d为删除C为选择-->
+                            选择
+                        </van-button>
+                    </view>
+
                 </van-swipe-cell>
             </van-collapse-item>
             </block>

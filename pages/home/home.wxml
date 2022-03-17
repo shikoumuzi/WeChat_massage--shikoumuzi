@@ -15,11 +15,20 @@
 <van-divider hairline/>
 <van-tabs swipeable class="Layout">
   <van-tab title="机器状态">
-  <block wx:if="{{false}}"><!--在这设定开机前后的状态-->
-    <van-cell inset>
-        一键启动
+  <block wx:if="{{MachineStart}}"><!--在这设定开机前后的状态-->
+    <van-cell inset round >
+        <view slot="title">
+            <title-class>
+                {{'当前状态: '+ model }}
+            </title-class>
+        </view>
+
+        <van-button plain type="default" icon="/static/tabarimage/handshake-outline.256x256.png" color="#32CD32" bindtap="OpenSwitch"> 
+            一键启动
+        </van-button>
     </van-cell>
   </block>
+
   <block wx:else>
         <van-cell inset  center="true"> 
             <view slot="title">
@@ -45,9 +54,9 @@
   <van-tab title="简便设置">
         <van-cell inset > 
             <van-grid  column-num = "3" gutter="{{ 10 }}" clickable>
-                <van-grid-item icon="photo-o" text="文字" />
+                <van-grid-item icon="/static/tabarimage/book-open-page-variant-outline.256x237.png" text="颈部健康报告" />
                 <van-grid-item icon="/static/tabarimage/bluetooth.186x256.png" text="蓝牙" />
-                <van-grid-item icon="photo-o" text="文字" user-slot/>
+                <van-grid-item icon="/static/tabarimage/location.243x256.png" text="定位" user-slot/>
             </van-grid>
         </van-cell>
   </van-tab>

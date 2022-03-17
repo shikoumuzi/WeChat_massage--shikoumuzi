@@ -68,6 +68,14 @@ Page({
         {
             temp.name = "自定义配置" + (this.data.saveFile_for_ind.length - 2);//默认名字
         }
+        else if(temp.name === "小憩一下" || temp.name === "午间休息" || temp.name === "长时舒缓")
+        {
+            wx.showToast({
+              title: '输入名称重复',
+              icon:"error"
+            })
+            return
+        }
         for(var i = 0;i<this.data.individuation.length;++i)
         {
             switch(this.data.individuation[i].name)
@@ -86,6 +94,7 @@ Page({
             }
         }
         this.data.saveFile_for_ind[ this.data.saveFile_for_ind.length] =  temp;
+        getApp().globalData.saveFile_for_ind = this.data.saveFile_for_ind;
 
         /*这里插入一个后端接口保存*/
         this.setData({//还原默认值
@@ -110,6 +119,41 @@ Page({
             })
         }
     },
+
+    ChooseInI:function(e)
+    {   
+        const app=getApp()
+        if(e.currentTarget.dataset.dorc === 'c')
+        {
+            console.log(e.currentTarget.dataset.status);
+            app.globalData.model = e.currentTarget.dataset.status;
+            console.log(app.globalData.model);
+        }
+        else if(e.currentTarget.dataset.dorc === 'd')
+        {
+            for(var i = 0 ; i < this.data.saveFile_for_ind.length; ++i)
+            {
+                if(this.data.saveFile_for_ind[i].name === e.currentTarget.dataset.status.name)
+                {
+                     this.data.saveFile_for_ind.splice(i,1);
+                    console.log( this.data.saveFile_for_ind)
+                    this.setData({
+                        saveFile_for_ind:this.data.saveFile_for_ind
+                    })
+                    console.log(app.globalData.model.name)
+                    console.log(e.currentTarget.dataset.status.name)
+                    if(app.globalData.model.name == e.currentTarget.dataset.status.name)
+                    {
+                        console.log("app change")
+                        app.globalData.model =  this.data.saveFile_for_ind[0]
+                    }
+                    break;
+                }
+            }
+        }
+
+    },
+
     onChangecollapse(event) {
         this.setData({
           activeName: event.detail,
