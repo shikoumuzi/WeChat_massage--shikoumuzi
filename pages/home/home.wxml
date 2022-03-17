@@ -55,8 +55,8 @@
         <van-cell inset > 
             <van-grid  column-num = "3" gutter="{{ 10 }}" clickable>
                 <van-grid-item icon="/static/tabarimage/book-open-page-variant-outline.256x237.png" text="颈部健康报告" />
-                <van-grid-item icon="/static/tabarimage/bluetooth.186x256.png" text="蓝牙" />
-                <van-grid-item icon="/static/tabarimage/location.243x256.png" text="定位" user-slot/>
+                <van-grid-item icon="/static/tabarimage/bluetooth.186x256.png" text="蓝牙" bindtap="BLEConnect"/>
+                <van-grid-item icon="/static/tabarimage/location.243x256.png" text="定位" user-slot bindtap="Location"/>
             </van-grid>
         </van-cell>
   </van-tab>
